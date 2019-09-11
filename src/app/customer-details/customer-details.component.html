@@ -2,5 +2,7 @@
   <p>{{ customer.name }}</p>
   <p>{{ customer.age }}</p>
   <p>{{ customer.membership_type }}</p>
-  <p>{{ customer.selected_insurances }}</p>
+  <p *ngFor="let insurance of customer.selected_insurances">
+    {{ insurance }}
+  </p>
 </div>
