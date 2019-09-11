@@ -7,7 +7,12 @@
     <form class="example-form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username" #userEmail />
+          <input
+            matInput
+            placeholder="Username"
+            name="username"
+            [(ngModel)]="userName"
+          />
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
@@ -15,14 +20,13 @@
             matInput
             placeholder="Password"
             type="password"
-            #userPassword
+            name="password"
+            [(ngModel)]="userPassword"
           />
         </mat-form-field>
       </mat-card-content>
       <button
-        (click)="
-          authenticationService.SignIn(userEmail.value, userPassword.value)
-        "
+        (click)="signIn()"
         mat-stroked-button
         color="accent"
         class="btn-block"
