@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import customersData from '../../assets/data/customers.json';
 import { Router } from '@angular/router';
+import undefined = require('firebase/empty-import');
 
 /* for firebase user authentication */
 // import { AuthenticationService } from '../shared/authentication.service';
@@ -34,21 +35,23 @@ export class LoginComponent implements OnInit {
         this.userName === customer.name &&
         this.userPassword === customer.password
       ) {
-        console.log(`User found`);
-        //if user is found navigate to the details component
-
         return true;
       } else {
-        console.log('No user found');
         return false;
       }
     });
+    this.routeChange(customer);
+    return customer;
+  }
 
-    if (customer !== []) {
-      console.log(customer);
+  routeChange(customer) {
+    // check if customer is not empty then change routes otherwise throw error
+    if (customer.length !== 0) {
       this.router.navigate(['/customer-details'], {
         state: { data: { ...customer } }
       });
+    } else {
+      console.log('User not found');
     }
   }
 }
