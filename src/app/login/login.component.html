@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
@@ -25,14 +26,16 @@
           />
         </mat-form-field>
       </mat-card-content>
-      <button
-        (click)="signIn()"
-        mat-stroked-button
-        color="accent"
-        class="btn-block"
+      <a href="#" routerLink="/customer-details"
+        ><button
+          (click)="signIn()"
+          mat-stroked-button
+          color="accent"
+          class="btn-block"
+        >
+          Log in
+        </button></a
       >
-        Log in
-      </button>
     </form>
   </mat-card>
 </div>

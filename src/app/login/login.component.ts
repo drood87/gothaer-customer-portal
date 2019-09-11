@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import customersData from '../../assets/data/customers.json';
+import { RouterModule, Routes } from '@angular/router';
 
 /* for firebase user authentication */
 // import { AuthenticationService } from '../shared/authentication.service';
