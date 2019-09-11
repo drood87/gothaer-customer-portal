@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer-details',
@@ -14,12 +13,14 @@ export class CustomerDetailsComponent implements OnInit {
     selected_insurances: any;
   };
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {
     /*check if it's first time loading it and if there is a history from route changing and set object then otherwise retrieve data from local storage*/
+
     if (history.state.data) {
       /*check if customer has insurances, if not replace with string*/
+
       const insurances = (function() {
         if (history.state.data[0].selected_insurances.length === 0) {
           return ['No insurances'];
@@ -36,7 +37,9 @@ export class CustomerDetailsComponent implements OnInit {
           insurance.replace('_', ' ')
         )
       };
+
       /*store customer object into local storage to persist data on page reload (just a little hack as I'm not saving it on a database otherwise we could make an HTTP request to fetch the data of course) */
+
       localStorage.setItem('customerData', JSON.stringify(this.customer));
     } else if (!history.state.data) {
       const customerData = (function() {

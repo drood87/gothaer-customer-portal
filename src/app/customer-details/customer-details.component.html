@@ -1,8 +1,14 @@
 <div class="container">
-  <p>{{ customer.name }}</p>
-  <p>{{ customer.age }}</p>
-  <p>{{ customer.membership_type }}</p>
-  <p *ngFor="let insurance of customer.selected_insurances">
-    {{ insurance }}
-  </p>
+  <div class="layout layout__details">
+    <h1>Personal Details</h1>
+    <p>{{ customer.name }}</p>
+    <p>{{ customer.age }}</p>
+    <p>{{ customer.membership_type }}</p>
+    <p *ngFor="let insurance of customer.selected_insurances">
+      {{ insurance }}
+    </p>
+  </div>
+  <div class="layout layout__insurances">
+    <app-insurances></app-insurances>
+  </div>
 </div>

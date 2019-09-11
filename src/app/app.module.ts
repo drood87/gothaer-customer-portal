@@ -21,9 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { InsurancesComponent } from './customer-details/insurances/insurances.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, HeaderComponent, CustomerDetailsComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, HeaderComponent, CustomerDetailsComponent, InsurancesComponent],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
