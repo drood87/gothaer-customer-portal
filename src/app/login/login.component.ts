@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import customersData from '../../assets/data/customers.json';
-import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 /* for firebase user authentication */
 // import { AuthenticationService } from '../shared/authentication.service';
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   /* for user authentication with email via firebase */
   // constructor(public authenticationService: AuthenticationService) {}
 
-  constructor() {}
+  constructor(private router: Router) {}
   ngOnInit() {}
 
   signIn() {
@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
         this.userPassword === customer.password
       ) {
         console.log(`User found`);
+        //if user is found navigate to the details component
+
         return true;
       } else {
         console.log('No user found');
@@ -42,6 +44,11 @@ export class LoginComponent implements OnInit {
       }
     });
 
-    console.log(customer);
+    if (customer !== []) {
+      console.log(customer);
+      this.router.navigate(['/customer-details'], {
+        state: { data: { ...customer } }
+      });
+    }
   }
 }
