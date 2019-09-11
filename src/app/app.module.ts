@@ -3,6 +3,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+/* Firebase Services */
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
+/* Auth service */
+import { AuthenticationService } from './shared/authentication.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +22,9 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     AngularMaterialModule,
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +33,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

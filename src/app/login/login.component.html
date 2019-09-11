@@ -7,14 +7,26 @@
     <form class="example-form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username" />
+          <input matInput placeholder="Username" #userEmail />
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" type="password" />
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            #userPassword
+          />
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block">
+      <button
+        (click)="
+          authenticationService.SignIn(userEmail.value, userPassword.value)
+        "
+        mat-stroked-button
+        color="accent"
+        class="btn-block"
+      >
         Log in
       </button>
     </form>
