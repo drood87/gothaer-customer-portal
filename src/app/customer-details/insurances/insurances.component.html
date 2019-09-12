@@ -1,8 +1,11 @@
-<h2>
-  Available Products for
-  {{ customerData.membership_type }} Membership
-</h2>
-<ul *ngFor="let product of customerAvailableProducts">
-  <li>{{ product.name }}</li>
-  <!-- <li>{{ product.details.info.prices }}</li> -->
-</ul>
+<section class="insurances">
+  <div class="insurance__details">
+    <h2>
+      Available Products
+    </h2>
+    <h4>Current Membership: {{ customerData.membership_type }}</h4>
+    <ul *ngFor="let product of customerAvailableProducts">
+      <li>{{ product.name }}</li>
+    </ul>
+  </div>
+</section>
