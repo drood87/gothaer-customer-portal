@@ -61,7 +61,12 @@ export class CustomerDetailsComponent implements OnInit {
         membership_type: customerData.membership_type,
         age: customerData.age,
         selected_insurances: insurances.map(insurance =>
-          insurance.replace('_', ' ')
+          insurance
+            .replace('_', ' ')
+            .toLowerCase()
+            .split(' ')
+            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+            .join(' ')
         )
       };
     }

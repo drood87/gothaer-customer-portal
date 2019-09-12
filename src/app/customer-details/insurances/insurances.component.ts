@@ -20,9 +20,18 @@ export class InsurancesComponent implements OnInit {
   public products: {
     accidentInsurance: object;
     lifeInsurance: object;
-    stickers: object;
     carInsurance: object;
   };
+
+  public memberships: {
+    premium: object;
+    plus: object;
+    basic: object;
+  };
+
+  public stickers: object;
+
+  public customerAvailableProducts: any;
 
   constructor(private http: HttpClient) {}
 
@@ -39,13 +48,52 @@ export class InsurancesComponent implements OnInit {
         })
       })
       .subscribe(response => {
-        this.products = {
-          accidentInsurance: response['accident_insurance'],
-          lifeInsurance: response['life_insurance'],
-          stickers: response['gothaer_stickers'],
-          carInsurance: response['car_insurance']
-        };
-        console.log(this.products);
+        (this.stickers = {
+          name: 'Gothaer Stickers',
+          details: response['gothaer_stickers']
+        }),
+          (this.products = {
+            accidentInsurance: {
+              name: 'Accident Insurance',
+              details: response['accident_insurance']
+            },
+
+            lifeInsurance: {
+              name: 'Life Insurance',
+              details: response['life_insurance']
+            },
+            carInsurance: {
+              name: 'Car Insurance',
+              details: response['car_insurance']
+            }
+          });
+        this.availableProducts();
       });
+  }
+
+  availableProducts() {
+    this.memberships = {
+      premium: [
+        this.products.accidentInsurance,
+        this.products.lifeInsurance,
+
+        this.products.carInsurance
+      ],
+      plus: [this.products.accidentInsurance, this.products.lifeInsurance],
+      basic: [this.products.lifeInsurance]
+    };
+    this.checkMembershipAndShowProducts();
+  }
+
+  checkMembershipAndShowProducts() {
+    if (this.customerData.membership_type === 'basic') {
+      this.customerAvailableProducts = this.memberships.basic;
+    } else if (this.customerData.membership_type === 'plus') {
+      this.customerAvailableProducts = this.memberships.plus;
+    } else if (this.customerData.membership_type === 'premium') {
+      this.customerAvailableProducts = this.memberships.premium;
+    }
+    console.log(this.customerAvailableProducts);
+    return this.customerAvailableProducts;
   }
 }
