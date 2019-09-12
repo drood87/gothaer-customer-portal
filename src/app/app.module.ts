@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { InsurancesComponent } from './customer-details/insurances/insurances.component';
+import { StickersComponent } from './customer-details/stickers/stickers.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { InsurancesComponent } from './customer-details/insurances/insurances.co
     RegisterComponent,
     HeaderComponent,
     CustomerDetailsComponent,
-    InsurancesComponent
+    InsurancesComponent,
+    StickersComponent
   ],
   imports: [
     BrowserModule,

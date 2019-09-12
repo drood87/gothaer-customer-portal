@@ -10,5 +10,17 @@
 		padding: 1rem;
 		border-radius: 5px;
 		box-shadow: 1px 1px 2px #555;
+		background-color: #fff;
+	}
+
+	&__list {
+		span {
+			font-weight: 500;
+		}
+
+		&--margin-bot {
+			display: inline-block;
+			margin-bottom: 1rem;
+		}
 	}
 }

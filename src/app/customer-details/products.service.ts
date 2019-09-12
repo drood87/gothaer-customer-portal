@@ -1,20 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { ProductsService } from '../products.service';
-@Component({
-  selector: 'app-insurances',
-  templateUrl: './insurances.component.html',
-  styleUrls: ['./insurances.component.scss']
-  // providers: [ProductsService]
-})
-export class InsurancesComponent implements OnInit {
-  /* fetch data for the customer from parent element */
-  @Input() customerData: {
-    name: string;
-    age: number;
-    membership_type: string;
-    selected_insurances: any;
+
+export class ProductsService {
+  public memberships: {
+    premium: object;
+    plus: object;
+    basic: object;
   };
 
   public products: {
@@ -23,29 +13,18 @@ export class InsurancesComponent implements OnInit {
     carInsurance: object;
   };
 
-  public memberships: {
-    premium: object;
-    plus: object;
-    basic: object;
-  };
+  public api: string;
 
   public stickers: object;
 
   public customerAvailableProducts: any;
 
-  constructor(
-    private http: HttpClient // private productsService: ProductsService
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.fetchProducts();
-    console.log(this.customerData);
-    // this.productsService.fetchProducts(this.customerData);
-  }
-
-  fetchProducts() {
+  fetchProducts(customerData: any) {
+    this.api = 'https://api.jsonbin.io/b/5d7622dfc22e9d0afd2958a7';
     return this.http
-      .get('https://api.jsonbin.io/b/5d7622dfc22e9d0afd2958a7', {
+      .get(this.api, {
         headers: new HttpHeaders({
           'secret-key':
             '$2a$10$2ffWVgeCpYtciy0QzJ7fuOH5rIzs90CLGdFetjWCiTnbqp5/t73mi'
@@ -90,11 +69,11 @@ export class InsurancesComponent implements OnInit {
   }
 
   checkMembershipAndShowProducts() {
-    if (this.customerData.membership_type === 'basic') {
+    if (customerData.membership_type === 'basic') {
       this.customerAvailableProducts = this.memberships.basic;
-    } else if (this.customerData.membership_type === 'plus') {
+    } else if (customerData.membership_type === 'plus') {
       this.customerAvailableProducts = this.memberships.plus;
-    } else if (this.customerData.membership_type === 'premium') {
+    } else if (customerData.membership_type === 'premium') {
       this.customerAvailableProducts = this.memberships.premium;
     }
     console.log(this.customerAvailableProducts);
