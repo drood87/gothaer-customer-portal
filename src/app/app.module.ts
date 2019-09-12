@@ -4,6 +4,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
 /* Firebase Services */
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -24,8 +25,16 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { InsurancesComponent } from './customer-details/insurances/insurances.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, HeaderComponent, CustomerDetailsComponent, InsurancesComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    HeaderComponent,
+    CustomerDetailsComponent,
+    InsurancesComponent
+  ],
   imports: [
+    BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -35,7 +44,9 @@ import { InsurancesComponent } from './customer-details/insurances/insurances.co
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    HttpClientModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent],
