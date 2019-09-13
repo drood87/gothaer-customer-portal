@@ -15,9 +15,9 @@
       </li>
     </ul>
   </div>
+  <div class="insurances__details" *ngIf="isShown">
+    <app-insurance-details
+      [insuranceDetails]="productDetail"
+    ></app-insurance-details>
+  </div>
 </section>
-<div class="insurances__details" *ngIf="isShown">
-  <app-insurance-details
-    [insuranceDetails]="productDetail"
-  ></app-insurance-details>
-</div>

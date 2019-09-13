@@ -7,18 +7,6 @@ export class ProductsService {
 
   public stickers: object;
 
-  public products: {
-    accidentInsurance: object;
-    lifeInsurance: object;
-    carInsurance: object;
-  };
-
-  public memberships: {
-    premium: object;
-    plus: object;
-    basic: object;
-  };
-
   public httpRequest: any;
 
   constructor(private http: HttpClient) {}
