@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductsService } from '../products.service';
+import { request } from 'https';
 
 @Component({
   selector: 'app-insurances',
@@ -34,10 +35,7 @@ export class InsurancesComponent implements OnInit {
 
   public customerAvailableProducts: any;
 
-  constructor(
-    private http: HttpClient,
-    private productsService: ProductsService
-  ) {}
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
     /* fetch request in service to keep component small and accessible to other components that might need data from the request */
