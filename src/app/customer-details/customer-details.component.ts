@@ -23,7 +23,6 @@ export class CustomerDetailsComponent implements OnInit {
     if (history.state.data) {
       const routeData = history.state.data[0];
       this.customer = this.customerService.createCustomer(routeData);
-      console.log(history.state.data);
     } else if (!history.state.data) {
       const retrieveData = localStorage.getItem('customerData');
       this.customer = this.customerService.createCustomer(

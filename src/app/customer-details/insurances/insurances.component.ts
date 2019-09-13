@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { ProductsService } from '../products.service';
+import { ProductsService } from '../products.service';
 @Component({
   selector: 'app-insurances',
   templateUrl: './insurances.component.html',
-  styleUrls: ['./insurances.component.scss']
-  // providers: [ProductsService]
+  styleUrls: ['./insurances.component.scss'],
+  providers: [ProductsService]
 })
 export class InsurancesComponent implements OnInit {
   /* fetch data for the customer from parent element */
@@ -34,47 +34,37 @@ export class InsurancesComponent implements OnInit {
   public customerAvailableProducts: any;
 
   constructor(
-    private http: HttpClient // private productsService: ProductsService
+    private http: HttpClient,
+    private productsService: ProductsService
   ) {}
 
   ngOnInit() {
-    this.fetchProducts();
-    console.log(this.customerData);
-    // this.productsService.fetchProducts(this.customerData);
+    // this.fetchProducts();
+    this.productsService.fetchProducts().subscribe(response => {
+      (this.stickers = {
+        name: 'Gothaer Stickers',
+        details: response['gothaer_stickers']
+      }),
+        (this.products = {
+          accidentInsurance: {
+            name: 'Accident Insurance',
+            details: response['accident_insurance']
+          },
+
+          lifeInsurance: {
+            name: 'Life Insurance',
+            details: response['life_insurance']
+          },
+          carInsurance: {
+            name: 'Car Insurance',
+            details: response['car_insurance']
+          }
+        });
+      this.availableProducts();
+    });
   }
 
-  fetchProducts() {
-    return this.http
-      .get('https://api.jsonbin.io/b/5d7622dfc22e9d0afd2958a7', {
-        headers: new HttpHeaders({
-          'secret-key':
-            '$2a$10$2ffWVgeCpYtciy0QzJ7fuOH5rIzs90CLGdFetjWCiTnbqp5/t73mi'
-        })
-      })
-      .subscribe(response => {
-        (this.stickers = {
-          name: 'Gothaer Stickers',
-          details: response['gothaer_stickers']
-        }),
-          (this.products = {
-            accidentInsurance: {
-              name: 'Accident Insurance',
-              details: response['accident_insurance']
-            },
-
-            lifeInsurance: {
-              name: 'Life Insurance',
-              details: response['life_insurance']
-            },
-            carInsurance: {
-              name: 'Car Insurance',
-              details: response['car_insurance']
-            }
-          });
-        this.availableProducts();
-      });
-  }
-
+  /* create object that saves the memberships into new object without stickers  */
   availableProducts() {
     this.memberships = {
       premium: [
@@ -89,6 +79,7 @@ export class InsurancesComponent implements OnInit {
     this.checkMembershipAndShowProducts();
   }
 
+  /* check what membership customer has and save the available products*/
   checkMembershipAndShowProducts() {
     if (this.customerData.membership_type === 'basic') {
       this.customerAvailableProducts = this.memberships.basic;
@@ -97,7 +88,7 @@ export class InsurancesComponent implements OnInit {
     } else if (this.customerData.membership_type === 'premium') {
       this.customerAvailableProducts = this.memberships.premium;
     }
-    console.log(this.customerAvailableProducts);
+
     return this.customerAvailableProducts;
   }
 }
