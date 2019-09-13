@@ -8,4 +8,16 @@
 	&__paragraph {
 		font-size: 0.9rem;
 	}
+
+	&__details {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	&__image {
+		width: 4rem;
+		border-radius: 50%;
+		display: block;
+		object-fit: cover;
+	}
 }
