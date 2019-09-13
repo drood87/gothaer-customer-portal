@@ -7,7 +7,9 @@
     <ul *ngFor="let product of customerAvailableProducts">
       <li>
         {{ product.name
-        }}<span (click)="productDetails(product)" class="insurances__link"
+        }}<span
+          (click)="productDetails(product)"
+          class="insurances__link noselect"
           >Learn more...</span
         >
       </li>

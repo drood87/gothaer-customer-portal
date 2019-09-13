@@ -76,12 +76,12 @@ export class InsurancesComponent implements OnInit {
 
   productDetails(product) {
     const name = product.name;
-    console.log(name);
+    /*toggle insurance information on click and just toggle if same element is clicked otherwise close again*/
     if (
       name === (this.productDetail || {}).name ||
-      !(this.productDetail || {}).name
+      (!(this.productDetail || {}).name ||
+        (name !== (this.productDetail || {}).name) === !this.isShown)
     ) {
-      console.log('hi');
       this.isShown = !this.isShown;
     }
 
