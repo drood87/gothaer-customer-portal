@@ -24,6 +24,7 @@ import { HeaderComponent } from './header/header.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { InsurancesComponent } from './customer-details/insurances/insurances.component';
 import { StickersComponent } from './customer-details/stickers/stickers.component';
+import { InsuranceDetailsComponent } from './customer-details/insurances/insurance-details/insurance-details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StickersComponent } from './customer-details/stickers/stickers.componen
     HeaderComponent,
     CustomerDetailsComponent,
     InsurancesComponent,
-    StickersComponent
+    StickersComponent,
+    InsuranceDetailsComponent
   ],
   imports: [
     BrowserModule,

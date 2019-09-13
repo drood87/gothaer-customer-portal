@@ -1,4 +1,12 @@
 .insurances {
+	&__available {
+		border: 1px solid #555;
+		padding: 1rem;
+		border-radius: 5px;
+		box-shadow: 1px 1px 2px #555;
+		background-color: #fff;
+	}
+
 	&__link {
 		font-size: 0.9rem;
 		margin-left: 9px;

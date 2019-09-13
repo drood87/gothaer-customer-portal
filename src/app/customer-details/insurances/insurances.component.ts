@@ -84,7 +84,7 @@ export class InsurancesComponent implements OnInit {
       this.isShown = !this.isShown;
     }
 
-    this.productDetail = {
+    return (this.productDetail = {
       name: product.name,
       prices: {
         age: product.details.prices.map(age => age.label),
@@ -93,7 +93,7 @@ export class InsurancesComponent implements OnInit {
           .map(currency => currency.currency)
           .reduce(val => val)
       }
-    };
+    });
   }
 
   /* create object that saves the memberships into new object without stickers  */
