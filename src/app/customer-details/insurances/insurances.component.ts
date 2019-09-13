@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductsService } from '../products.service';
-import { request } from 'https';
 
 @Component({
   selector: 'app-insurances',
@@ -76,7 +74,8 @@ export class InsurancesComponent implements OnInit {
 
   productDetails(product) {
     const name = product.name;
-    /*toggle insurance information on click and just toggle if same element is clicked otherwise close again*/
+    /*toggle insurance information on click and just toggle if same element is clicked otherwise close again */
+    /* first time element is clicked productDetail will be undefined so create an empty object to prevent undefined error */
     if (
       name === (this.productDetail || {}).name ||
       (!(this.productDetail || {}).name ||
