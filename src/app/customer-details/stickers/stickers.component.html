@@ -1,1 +1,13 @@
-<p>stickers works!</p>
+<section *ngIf="isDataLoaded" class="stickers">
+  <h2>{{ stickers.name }}</h2>
+  <p class="stickers__paragraph">
+    Available for all our valued customers. Show your loyalty now.
+  </p>
+  <ul>
+    <li>
+      Price: {{ stickers.details.info.price }}
+      {{ stickers.details.info.currency }}
+    </li>
+    <li>Amount: {{ stickers.details.info.amount }}</li>
+  </ul>
+</section>

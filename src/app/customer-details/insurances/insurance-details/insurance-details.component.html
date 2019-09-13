@@ -1,9 +1,21 @@
 <section class="details">
   <h2 class="details__header">{{ insuranceDetails.name }}</h2>
-  <ul>
-    <p>Age: 0 - 15</p>
-  </ul>
-  <ul>
-    <li>Price: 3,99$</li>
-  </ul>
+  <div class="details__table">
+    <div>
+      <p class="details__table--header">Age</p>
+      <div>
+        <ul *ngFor="let age of insuranceDetails.prices.age">
+          <li>{{ age }}</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <p class="details__table--header">Price</p>
+      <div>
+        <ul *ngFor="let price of insuranceDetails.prices.price">
+          <li>{{ price }} {{ insuranceDetails.prices.currency }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>

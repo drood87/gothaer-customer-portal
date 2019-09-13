@@ -1,10 +1,15 @@
 .insurances {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5rem;
+
 	&__available {
 		border: 1px solid #555;
 		padding: 1rem;
 		border-radius: 5px;
 		box-shadow: 1px 1px 2px #555;
 		background-color: #fff;
+		height: 200px;
 	}
 
 	&__link {

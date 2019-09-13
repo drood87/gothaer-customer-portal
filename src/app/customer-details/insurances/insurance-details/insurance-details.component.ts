@@ -18,7 +18,5 @@ export class InsuranceDetailsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.insuranceDetails);
-  }
+  ngOnInit() {}
 }
