@@ -1,11 +1,13 @@
 <section class="insurances">
-  <div class="insurance__details">
+  <div class="insurances__details">
     <h2>
       Available Products
     </h2>
     <h4>Current Membership: {{ customerData.membership_type }}</h4>
     <ul *ngFor="let product of customerAvailableProducts">
-      <li>{{ product.name }}</li>
+      <li>
+        {{ product.name }}<a href="#" class="insurances__link">Learn more...</a>
+      </li>
     </ul>
   </div>
 </section>

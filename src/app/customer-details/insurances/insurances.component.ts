@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductsService } from '../products.service';
+
 @Component({
   selector: 'app-insurances',
   templateUrl: './insurances.component.html',
@@ -39,7 +40,7 @@ export class InsurancesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.fetchProducts();
+    /* fetch request in service to keep component small and accessible to other components that might need data from the request */
     this.productsService.fetchProducts().subscribe(response => {
       (this.stickers = {
         name: 'Gothaer Stickers',
