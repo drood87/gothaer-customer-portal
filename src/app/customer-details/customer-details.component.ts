@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import undefined = require('firebase/empty-import');
+import { CustomerService } from './customer.service';
 
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
-  styleUrls: ['./customer-details.component.scss']
+  styleUrls: ['./customer-details.component.scss'],
+  providers: [CustomerService]
 })
 export class CustomerDetailsComponent implements OnInit {
   customer: {
@@ -15,26 +15,19 @@ export class CustomerDetailsComponent implements OnInit {
     selected_insurances: any;
   };
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private customerService: CustomerService) {}
 
   ngOnInit() {
-    const insurances = history.state.data[0].selected_insurances.map(
-      insurance => {
-        if (insurance === undefined) {
-          return console.log('empty');
-        } else {
-          return insurance;
-        }
-      }
-    );
+    /* outsource logic to service to keep dry and components clean*/
 
-    this.customer = {
-      name: history.state.data[0].name,
-      membership_type: history.state.data[0].membership_type,
-      age: history.state.data[0].age,
-      selected_insurances: insurances
-    };
-
-    console.log(this.customer);
+    if (history.state.data) {
+      const routeData = history.state.data[0];
+      this.customer = this.customerService.createCustomer(routeData);
+    } else if (!history.state.data) {
+      const retrieveData = localStorage.getItem('customerData');
+      this.customer = this.customerService.createCustomer(
+        JSON.parse(retrieveData)
+      );
+    }
   }
 }

@@ -1,6 +1,22 @@
-<div class="container">
-  <p>{{ customer.name }}</p>
-  <p>{{ customer.age }}</p>
-  <p>{{ customer.membership_type }}</p>
-  <p>{{ customer.selected_insurances }}</p>
-</div>
+<section class="customer">
+  <div class="customer__details">
+    <h2>Personal Details</h2>
+    <ul class="customer__list">
+      <li><span>Name: </span>{{ customer.name }}</li>
+      <li><span>Age: </span>{{ customer.age }}</li>
+      <li><span>Membership: </span>{{ customer.membership_type }}</li>
+      <span class="customer__list--margin-bot">Active Insurances: </span>
+      <li *ngFor="let insurance of customer.selected_insurances">
+        {{ insurance }}
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="products">
+  <div class="products__insurances">
+    <app-insurances [customerData]="customer"></app-insurances>
+  </div>
+  <div class="products__stickers">
+    <app-stickers></app-stickers>
+  </div>
+</section>

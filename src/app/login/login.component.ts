@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import customersData from '../../assets/data/customers.json';
 import { Router } from '@angular/router';
-import undefined = require('firebase/empty-import');
 
 /* for firebase user authentication */
 // import { AuthenticationService } from '../shared/authentication.service';

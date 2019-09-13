@@ -4,6 +4,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
 /* Firebase Services */
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -21,10 +22,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { InsurancesComponent } from './customer-details/insurances/insurances.component';
+import { StickersComponent } from './customer-details/stickers/stickers.component';
+import { InsuranceDetailsComponent } from './customer-details/insurances/insurance-details/insurance-details.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, HeaderComponent, CustomerDetailsComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    HeaderComponent,
+    CustomerDetailsComponent,
+    InsurancesComponent,
+    StickersComponent,
+    InsuranceDetailsComponent
+  ],
   imports: [
+    BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -34,7 +48,9 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    HttpClientModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent],
