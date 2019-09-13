@@ -1,13 +1,19 @@
 <section class="insurances">
-  <div class="insurances__details">
+  <div class="insurances__available">
     <h2>
       Available Products
     </h2>
     <h4>Current Membership: {{ customerData.membership_type }}</h4>
     <ul *ngFor="let product of customerAvailableProducts">
       <li>
-        {{ product.name }}<a href="#" class="insurances__link">Learn more...</a>
+        {{ product.name
+        }}<span (click)="productDetails(product)" class="insurances__link"
+          >Learn more...</span
+        >
       </li>
     </ul>
+  </div>
+  <div class="insurances__details" *ngIf="isShown">
+    <h2>{{ productDetail.name }}</h2>
   </div>
 </section>

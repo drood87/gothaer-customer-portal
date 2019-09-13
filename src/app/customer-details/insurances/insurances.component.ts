@@ -31,9 +31,20 @@ export class InsurancesComponent implements OnInit {
     basic: object;
   };
 
+  public productDetail: {
+    name: string;
+    prices: {
+      age: number;
+      price: number;
+      currency: string;
+    };
+  };
+
   public stickers: object;
 
   public customerAvailableProducts: any;
+
+  public isShown = false;
 
   constructor(private productsService: ProductsService) {}
 
@@ -61,6 +72,29 @@ export class InsurancesComponent implements OnInit {
         });
       this.availableProducts();
     });
+  }
+
+  productDetails(product) {
+    const name = product.name;
+    console.log(name);
+    if (
+      name === (this.productDetail || {}).name ||
+      !(this.productDetail || {}).name
+    ) {
+      console.log('hi');
+      this.isShown = !this.isShown;
+    }
+
+    this.productDetail = {
+      name: product.name,
+      prices: {
+        age: product.details.prices.map(age => age.label),
+        price: product.details.prices.map(price => price.price),
+        currency: product.details.prices
+          .map(currency => currency.currency)
+          .reduce(val => val)
+      }
+    };
   }
 
   /* create object that saves the memberships into new object without stickers  */
