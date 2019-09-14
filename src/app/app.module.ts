@@ -21,7 +21,7 @@ import { LoginComponent } from './login/login.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
-import { HeaderComponent } from './header/header.component';
+
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { InsurancesComponent } from './customer-details/insurances/insurances.component';
 import { StickersComponent } from './customer-details/stickers/stickers.component';
@@ -32,7 +32,7 @@ import { InsuranceDetailsComponent } from './customer-details/insurances/insuran
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HeaderComponent,
+
     CustomerDetailsComponent,
     InsurancesComponent,
     StickersComponent,
