@@ -9,7 +9,7 @@ import { ProductsService } from '../products.service';
   providers: [ProductsService]
 })
 export class StickersComponent implements OnInit {
-  public stickers: object = {};
+  public stickers: any;
 
   public isDataLoaded: boolean = false;
 

@@ -29,14 +29,16 @@ export class InsurancesComponent implements OnInit {
     basic: object;
   };
 
-  public productDetail: {
-    name: any;
-    prices: {
-      age: number;
-      price: number;
-      currency: string;
-    };
-  };
+  // public productDetail: {
+  //   name: any;
+  //   prices: {
+  //     age: number;
+  //     price: number;
+  //     currency: string;
+  //   };
+  // };
+
+  public productDetail: any;
 
   public stickers: object;
 
