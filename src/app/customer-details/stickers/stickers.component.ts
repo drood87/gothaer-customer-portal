@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -24,9 +23,5 @@ export class StickersComponent implements OnInit {
       /* just load template if fetch call is finished and set to true */
       this.isDataLoaded = true;
     });
-  }
-
-  makeStickers() {
-    console.log(this.stickers);
   }
 }

@@ -3,7 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
 /* Firebase Services */
 import { AngularFireModule } from '@angular/fire';
@@ -22,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 
+// components import
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { InsurancesComponent } from './customer-details/insurances/insurances.component';
 import { StickersComponent } from './customer-details/stickers/stickers.component';
@@ -32,7 +32,6 @@ import { InsuranceDetailsComponent } from './customer-details/insurances/insuran
     AppComponent,
     LoginComponent,
     RegisterComponent,
-
     CustomerDetailsComponent,
     InsurancesComponent,
     StickersComponent,
