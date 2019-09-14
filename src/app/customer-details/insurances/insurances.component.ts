@@ -30,7 +30,7 @@ export class InsurancesComponent implements OnInit {
   };
 
   public productDetail: {
-    name: string;
+    name: any;
     prices: {
       age: number;
       price: number;
