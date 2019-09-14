@@ -22,11 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   signIn() {
-    /* grab username and password */
-
-    this.userName;
-    this.userPassword;
-
     /* Check login credentials */
 
     const customer = customersData.customers.filter(customer => {
@@ -50,7 +45,7 @@ export class LoginComponent implements OnInit {
         state: { data: { ...customer } }
       });
     } else {
-      console.log('User not found');
+      console.error('User not found');
     }
   }
 }

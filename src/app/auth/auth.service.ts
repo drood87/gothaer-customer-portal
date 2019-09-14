@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { tap, delay } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
-  constructor() {}
-  // ...
-  public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
-    // Check whether the token is expired and return
-    // true or false
-    return !this.jwtHelper.isTokenExpired(token);
+  isLoggedIn = false;
+
+  redirectUrl: string;
+
+  login(): Observable<boolean> {
+    return of(true).pipe(
+      delay(1000),
+      tap(val => (this.isLoggedIn = true))
+    );
+  }
+
+  logout(): void {
+    this.isLoggedIn = false;
   }
 }

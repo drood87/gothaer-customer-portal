@@ -7,12 +7,12 @@ import {
 } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+
 import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor(authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,15 +22,15 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Promise<boolean | UrlTree>
     | Observable<boolean | UrlTree> {
-    return this.authService.user.pipe(
-      take(1),
-      map(user => {
-        const isAuth = !!user;
-        if (isAuth) {
-          return true;
-        }
-        return this.router.createUrlTree(['/login']);
-      })
-    );
+    if (this.authService.isLoggedIn) {
+      return true;
+    }
+
+    // Store the attempted URL for redirecting
+    // this.authService.redirectUrl = url;
+
+    // Navigate to the login page with extras
+    this.router.navigate(['/login']);
+    return false;
   }
 }
