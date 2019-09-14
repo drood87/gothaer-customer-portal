@@ -12,7 +12,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 /* Auth service */
-import { AuthenticationService } from './shared/authentication.service';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,7 +53,7 @@ import { InsuranceDetailsComponent } from './customer-details/insurances/insuran
 
     HttpClientModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
