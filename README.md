@@ -55,6 +55,7 @@ Some more features I would have liked to implement with more time and more under
 > - some more fancy styling and maybe animations for a richer and more interesting user experience ( i concentrated more on the functionality than design now as it was my first time using angular and typescript)
 > - another view that lists all membership types and accessible insurances with it
 > - header functionality that shows a sign out button and the name of the currently signed in user( plus dropdown with several options what he can do in his dashboard)
+> - clean up components and outsource more logic into services so that components stay mostly for the view of the template.
 
 ## Takeaway
 
@@ -62,4 +63,8 @@ I think a little `lessons learned` might be a nice way to demonstrate my communi
 
 As this was my very first experience with Angular I had a rough time to get started and architect my App. Angular has a lot of features to offer out of the box and the first days I felt everything but productive. I didn't had any previous experience with typescript either so I thought I stick with normal Javascript for the most part and implement a little typescript syntax here and there where I knew what I was doing.
 
-Angular is a beast to tame, compared to Vue or React but I think is immense helpful for large scale applications and with a willingness to learn it might be fun to work with (or not judging to some rant blogposts about Angular).
+Angular is a beast to tame, compared to Vue or React but I think is immense helpful for large scale applications and with a willingness to learn it might be fun to work with (or not judging to some rant blogposts about Angular). Angular has a lot to offer and sometimes it felt like it was re-inventing the wheel (looking at you observables and directives) whereas React uses more of what Javascript has to offer from the get go.
+
+This is not supposed to mean I wouldn't like to work or learn it. I believe that learning new things will enhance not just someones career but makes someone a better Developer and shows different approaches. I am happy to work with anything, even if it means I have to spend more time learning a particular technology.
+
+It was an interesting little project and it was fun to learn something new along the way even if it's far from best practices yet. But I made improvements on my code every day and think with a month of more working/ learning with Angular I could improve my skills with it drastically and make it look cleaner and implement a more logical architecture of the project.
