@@ -3,6 +3,15 @@
 	border-radius: 5px;
 	box-shadow: 1px 1px 5px #555;
 	background-color: #fff;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	background-image: linear-gradient(to right bottom, rgba(0, 108, 140, 0.7), rgba(0, 108, 140, 0.7)),
+		url(../../../assets/a3fc62a914cfc3d732c8bc67a908e8fb.jpg);
+	background-size: cover;
+	background-position: top;
+	color: #fff;
+	margin-bottom: 5rem;
 
 	&__paragraph {
 		font-size: 0.9rem;
@@ -10,7 +19,16 @@
 
 	&__details {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
+
+		ul {
+			margin-left: 0;
+			margin-right: 2rem;
+
+			li {
+				text-align: left;
+			}
+		}
 	}
 
 	&__image {
