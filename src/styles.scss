@@ -5,6 +5,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 body {
 	background-position: center;
@@ -12,8 +13,8 @@ body {
 	background-repeat: no-repeat;
 	min-height: 100vh;
 	margin: 0;
-	font-family: 'Roboto', 'Helvetica Neue', sans-serif;
-	letter-spacing: 0.5px;
+	font-family: 'Lato', 'Helvetica Neue', sans-serif;
+	letter-spacing: 2px;
 	background-color: #ebedeb;
 }
 

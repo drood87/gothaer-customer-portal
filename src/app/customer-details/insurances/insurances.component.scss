@@ -1,7 +1,8 @@
 .insurances {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	gap: 5rem;
+	width: 280px;
 
 	&__available {
 		padding: 1rem;
