@@ -3,7 +3,12 @@
     <h2>
       Available Products
     </h2>
-    <h4>Current Membership: {{ customerData.membership_type }}</h4>
+    <h4>
+      Current Membership:
+      <span class="insurances__available--active">
+        {{ customerData.membership_type }}</span
+      >
+    </h4>
     <ul *ngFor="let product of customerAvailableProducts">
       <li>
         {{ product.name
