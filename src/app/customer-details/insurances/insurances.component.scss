@@ -1,27 +1,41 @@
 .insurances {
-	width: 50%;
+	width: 80%;
+	height: 28rem;
 	margin: 4rem auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 4rem;
+	background-image: linear-gradient(to right bottom, rgba(0, 108, 140, 0.7), rgba(0, 108, 140, 0.7)),
+		url(../../../assets/health-lead-01.jpg);
+	background-size: cover;
+	background-position: top;
+	justify-items: center;
+	color: #fff;
+	overflow: hidden;
+	padding: 1rem;
+	box-shadow: 1px 1px 5px #555;
+	border-radius: 5px;
 
 	&__available {
 		padding: 1rem;
-		border-radius: 5px;
-		box-shadow: 1px 1px 5px #555;
-		background-color: #fff;
 		max-height: min-content;
+		align-self: center;
 
 		&--active {
 			color: #43ba63;
 		}
 	}
 
+	&__details {
+		align-self: center;
+	}
+
 	&__link {
-		font-size: 0.9rem;
+		font-size: 0.7rem;
 		margin-left: 9px;
-		color: #006c8c;
+		color: #fff;
 		cursor: pointer;
+		border-bottom: 1px solid #fff;
 	}
 }
 
