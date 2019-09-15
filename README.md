@@ -56,6 +56,7 @@ Some more features I would have liked to implement with more time and more under
 > - another view that lists all membership types and accessible insurances with it
 > - header functionality that shows a sign out button and the name of the currently signed in user( plus dropdown with several options what he can do in his dashboard)
 > - clean up components and outsource more logic into services so that components stay mostly for the view of the template.
+> - make it responsive for phones and smaller screens etc
 
 ## Takeaway
 
